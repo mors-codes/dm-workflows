@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Reveal, RevealList, RevealItem } from "@/components/ui/Reveal";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -39,7 +40,7 @@ export function Contact() {
   return (
     <section id="contact" className="px-8 py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
-        <div>
+        <Reveal variant="left" duration={0.65}>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute-soft">
             Let&apos;s talk
           </p>
@@ -57,14 +58,19 @@ export function Contact() {
             This form runs on one of our own automations — it scores what you
             send, files it, and notifies us the moment it lands.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="rounded-xl bg-ink-soft p-8 text-paper shadow-[0_24px_60px_-24px_rgba(23,22,26,0.45)] sm:p-10">
+        <Reveal
+          variant="scale"
+          duration={0.7}
+          delay={0.15}
+          className="rounded-xl bg-ink-soft p-8 text-paper shadow-[0_24px_60px_-24px_rgba(23,22,26,0.45)] sm:p-10"
+        >
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/40">
             Start here
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+          <form onSubmit={handleSubmit} className="mt-7">
             <input
               type="text"
               name="company_website"
@@ -74,68 +80,72 @@ export function Contact() {
               className="pointer-events-none absolute left-[-9999px] opacity-0"
             />
 
-            <div className="space-y-2">
-              <label htmlFor="name" className={labelClass}>
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                required
-                placeholder="Your name"
-                className={fieldClass}
-              />
-            </div>
+            <RevealList stagger={0.08} delay={0.4} className="space-y-5">
+              <RevealItem className="space-y-2">
+                <label htmlFor="name" className={labelClass}>
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Your name"
+                  className={fieldClass}
+                />
+              </RevealItem>
 
-            <div className="space-y-2">
-              <label htmlFor="email" className={labelClass}>
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="you@company.com"
-                className={fieldClass}
-              />
-            </div>
+              <RevealItem className="space-y-2">
+                <label htmlFor="email" className={labelClass}>
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@company.com"
+                  className={fieldClass}
+                />
+              </RevealItem>
 
-            <div className="space-y-2">
-              <label htmlFor="message" className={labelClass}>
-                What&apos;s the manual work?
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                required
-                placeholder="The task someone on your team repeats every week."
-                className={`${fieldClass} resize-none`}
-              />
-            </div>
+              <RevealItem className="space-y-2">
+                <label htmlFor="message" className={labelClass}>
+                  What&apos;s the manual work?
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="The task someone on your team repeats every week."
+                  className={`${fieldClass} resize-none`}
+                />
+              </RevealItem>
 
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="w-full rounded-sm bg-accent px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper transition-colors hover:bg-accent-deep disabled:opacity-50"
-            >
-              {status === "sending" ? "Sending…" : "Send it over"}
-            </button>
+              <RevealItem>
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="w-full rounded-sm bg-accent px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper transition-colors hover:bg-accent-deep disabled:opacity-50"
+                >
+                  {status === "sending" ? "Sending…" : "Send it over"}
+                </button>
+              </RevealItem>
+            </RevealList>
 
             {status === "sent" && (
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
+              <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
                 Got it. We&apos;ll be in touch.
               </p>
             )}
 
             {status === "error" && (
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
+              <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
                 Didn&apos;t send. Try WhatsApp instead.
               </p>
             )}
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

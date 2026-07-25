@@ -1,3 +1,5 @@
+import { Reveal, RevealList, RevealItem } from "@/components/ui/Reveal";
+
 const points = [
   {
     stat: "Direct",
@@ -17,7 +19,7 @@ export function WhyUs() {
   return (
     <section id="why" className="border-b border-line bg-paper-dim px-8 py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-2">
-        <div>
+        <Reveal variant="blur" duration={0.7}>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute-soft">
             Why us
           </p>
@@ -28,29 +30,35 @@ export function WhyUs() {
 
           <div className="mt-6 max-w-lg space-y-4 text-mute">
             <p>
-              Operating from the Philippines allows us to keep our overhead 
-              lower than agencies in the US, UK, or Australia. Those savings 
-              are reflected in our pricing, never in the quality of our work.
+              We run lean out of the Philippines. No office to fill, no bench to
+              keep busy, and no account management layer between you and the
+              people building your system.
             </p>
             <p>
-              We work across your business hours, communicate clearly, and 
-              provide ongoing support long after your system goes live.
+              That structure is the whole difference. What an agency spends on
+              overhead, we spend on the build — and you deal directly with the
+              people doing it, for as long as the system runs.
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <dl className="border-t border-line">
+        <RevealList stagger={0.14} delay={0.2} className="border-t border-line">
           {points.map((point) => (
-            <div key={point.stat} className="border-b border-line py-7">
-              <dt className="text-2xl font-medium tracking-tight">
+            <RevealItem
+              key={point.stat}
+              variant="right"
+              duration={0.6}
+              className="border-b border-line py-7"
+            >
+              <p className="text-2xl font-medium tracking-tight">
                 {point.stat}
-              </dt>
-              <dd className="mt-2 max-w-sm text-[15px] leading-relaxed text-mute">
+              </p>
+              <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-mute">
                 {point.label}
-              </dd>
-            </div>
+              </p>
+            </RevealItem>
           ))}
-        </dl>
+        </RevealList>
       </div>
     </section>
   );

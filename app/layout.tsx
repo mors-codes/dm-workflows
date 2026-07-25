@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { SiteNav } from "@/components/sections/SiteNav";
 import { SiteFooter } from "@/components/sections/SiteFooter";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 
 export const metadata: Metadata = {
   title: "DM Workflows — Operational Automation for Growing Businesses",
@@ -20,9 +21,11 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="font-sans">
-        <SiteNav />
-        {children}
-        <SiteFooter />
+        <MotionProvider>
+          <SiteNav />
+          {children}
+          <SiteFooter />
+        </MotionProvider>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import { Reveal, RevealList, RevealItem } from "@/components/ui/Reveal";
+
 const steps = [
   {
     tag: "Find",
@@ -25,22 +27,33 @@ export function Process() {
   return (
     <section id="process" className="border-b border-line px-8 py-28">
       <div className="mx-auto max-w-6xl">
-        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute-soft">
-          How we work
-        </p>
+        <Reveal>
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute-soft">
+            How we work
+          </p>
 
-        <h2 className="mt-6 max-w-2xl text-3xl font-medium tracking-tight sm:text-4xl">
-          From manual task to running system.
-        </h2>
+          <h2 className="mt-6 max-w-2xl text-3xl font-medium tracking-tight sm:text-4xl">
+            From manual task to running system.
+          </h2>
 
-        <p className="mt-5 max-w-xl text-mute">
-          Short and direct, built for businesses that want the result without
-          managing a build.
-        </p>
+          <p className="mt-5 max-w-xl text-mute">
+            Short and direct, built for businesses that want the result without
+            managing a build.
+          </p>
+        </Reveal>
 
-        <ol className="mt-16 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <RevealList
+          stagger={0.12}
+          delay={0.15}
+          className="mt-16 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4"
+        >
           {steps.map((step, index) => (
-            <li key={step.title} className="bg-paper p-7">
+            <RevealItem
+              key={step.title}
+              variant="wipe"
+              duration={0.6}
+              className="bg-paper p-7"
+            >
               <span className="font-mono text-4xl tabular-nums text-accent/25">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -56,9 +69,9 @@ export function Process() {
               <p className="mt-3 text-[15px] leading-relaxed text-mute">
                 {step.body}
               </p>
-            </li>
+            </RevealItem>
           ))}
-        </ol>
+        </RevealList>
       </div>
     </section>
   );
