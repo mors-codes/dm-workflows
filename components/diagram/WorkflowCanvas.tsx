@@ -73,7 +73,8 @@ export function WorkflowCanvas({ diagram }: { diagram: WorkflowDiagram }) {
 
   return (
     <figure className="m-0">
-      <div className="h-[360px] w-full rounded-lg border border-paper/10 bg-ink">
+      <div className="-mx-8 overflow-x-auto px-8 sm:mx-0 sm:px-0">
+        <div className="h-[360px] w-full min-w-[820px] rounded-lg border border-paper/10 bg-ink">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -101,6 +102,7 @@ export function WorkflowCanvas({ diagram }: { diagram: WorkflowDiagram }) {
             style={{ opacity: 0.07 }}
           />
         </ReactFlow>
+        </div>
       </div>
 
       <figcaption className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
