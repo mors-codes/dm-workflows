@@ -15,16 +15,16 @@ export function Services() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/50">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/70">
               What we build
             </p>
 
-            <h2 className="mt-6 max-w-xl text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+            <h2 className="mt-6 max-w-xl text-3xl font-medium tracking-tight text-paper sm:text-4xl lg:text-5xl">
               Systems for the work that doesn&apos;t stop.
             </h2>
           </div>
 
-          <p className="max-w-xs text-[15px] leading-relaxed text-ink/70 md:text-right">
+          <p className="max-w-xs text-[15px] leading-relaxed text-paper md:text-right">
             Every one of these started as a repetitive task someone was doing by
             hand. Each links to the system we built for it.
           </p>
