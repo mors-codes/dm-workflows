@@ -5,6 +5,7 @@ export interface WorkflowNode {
   label: string;
   category: NodeCategory;
   service?: string;
+  note?: string;
   position: { x: number; y: number };
 }
 

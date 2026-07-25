@@ -8,6 +8,7 @@ export type WorkflowNodeData = {
   label: string;
   category: NodeCategory;
   service?: string;
+  vertical?: boolean;
 };
 
 export type WorkflowFlowNode = Node<WorkflowNodeData, "workflow">;
@@ -16,7 +17,7 @@ const handleClass =
   "!h-1.5 !w-1.5 !border-0 !bg-paper/30 !min-h-0 !min-w-0";
 
 export function WorkflowNode({ data }: NodeProps<WorkflowFlowNode>) {
-  const { label, category, service } = data;
+  const { label, category, service, vertical } = data;
   const { Icon, label: categoryLabel, pill, bar } = nodeCategories[category];
 
   return (
@@ -44,13 +45,13 @@ export function WorkflowNode({ data }: NodeProps<WorkflowFlowNode>) {
 
       <Handle
         type="target"
-        position={Position.Left}
+        position={vertical ? Position.Top : Position.Left}
         isConnectable={false}
         className={handleClass}
       />
       <Handle
         type="source"
-        position={Position.Right}
+        position={vertical ? Position.Bottom : Position.Right}
         isConnectable={false}
         className={handleClass}
       />

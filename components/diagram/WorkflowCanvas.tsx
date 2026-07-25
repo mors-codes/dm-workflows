@@ -13,6 +13,7 @@ import "@xyflow/react/dist/style.css";
 import type { WorkflowDiagram } from "@/lib/types";
 import { categoryOrder, nodeCategories } from "./categories";
 import { WorkflowNode, type WorkflowFlowNode } from "./WorkflowNode";
+import { WorkflowSteps } from "./WorkflowSteps";
 
 const nodeTypes = { workflow: WorkflowNode };
 
@@ -72,53 +73,57 @@ export function WorkflowCanvas({ diagram }: { diagram: WorkflowDiagram }) {
   );
 
   return (
-    <figure className="m-0">
-      <div className="-mx-8 overflow-x-auto px-8 sm:mx-0 sm:px-0">
-        <div className="h-[360px] w-full min-w-[820px] rounded-lg border border-paper/10 bg-ink">
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          nodeTypes={nodeTypes}
-          fitView
-          fitViewOptions={{ padding: 0.1 }}
-          minZoom={0.35}
-          maxZoom={1}
-          nodesDraggable={false}
-          nodesConnectable={false}
-          elementsSelectable={false}
-          zoomOnScroll={false}
-          zoomOnPinch={false}
-          zoomOnDoubleClick={false}
-          panOnDrag={false}
-          panOnScroll={false}
-          preventScrolling={false}
-          proOptions={{ hideAttribution: false }}
-        >
-          <Background
-            variant={BackgroundVariant.Dots}
-            gap={28}
-            size={1}
-            color="var(--color-paper)"
-            style={{ opacity: 0.07 }}
-          />
-        </ReactFlow>
-        </div>
+    <>
+      <div className="md:hidden">
+        <WorkflowSteps diagram={diagram} />
       </div>
 
-      <figcaption className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-        {usedCategories.map((category) => {
-          const { Icon, label } = nodeCategories[category];
-          return (
-            <span
-              key={category}
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/45"
-            >
-              <Icon className="h-3 w-3" strokeWidth={2.5} />
-              {label}
-            </span>
-          );
-        })}
-      </figcaption>
-    </figure>
+      <figure className="m-0 hidden md:block">
+        <div className="h-[360px] w-full rounded-lg border border-paper/10 bg-ink">
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            nodeTypes={nodeTypes}
+            fitView
+            fitViewOptions={{ padding: 0.1 }}
+            minZoom={0.35}
+            maxZoom={1}
+            nodesDraggable={false}
+            nodesConnectable={false}
+            elementsSelectable={false}
+            zoomOnScroll={false}
+            zoomOnPinch={false}
+            zoomOnDoubleClick={false}
+            panOnDrag={false}
+            panOnScroll={false}
+            preventScrolling={false}
+            proOptions={{ hideAttribution: false }}
+          >
+            <Background
+              variant={BackgroundVariant.Dots}
+              gap={28}
+              size={1}
+              color="var(--color-paper)"
+              style={{ opacity: 0.07 }}
+            />
+          </ReactFlow>
+        </div>
+
+        <figcaption className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+          {usedCategories.map((category) => {
+            const { Icon, label } = nodeCategories[category];
+            return (
+              <span
+                key={category}
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/45"
+              >
+                <Icon className="h-3 w-3" strokeWidth={2.5} />
+                {label}
+              </span>
+            );
+          })}
+        </figcaption>
+      </figure>
+    </>
   );
 }
