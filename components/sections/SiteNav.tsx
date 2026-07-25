@@ -10,11 +10,12 @@ export function SiteNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-8 py-4">
-        <Link
-          href="/"
-          className="font-mono text-[13px] uppercase tracking-[0.16em]"
-        >
-          DM<span className="text-accent">.</span>Workflows
+        <Link href="/" className="shrink-0">
+          <img
+            src="/logo-dark.svg"
+            alt="DM Workflows"
+            className="h-7 w-auto sm:h-9"
+          />
         </Link>
 
         <div className="flex items-center gap-8">

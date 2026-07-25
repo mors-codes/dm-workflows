@@ -12,11 +12,12 @@ export function SiteFooter() {
     <footer className="border-t border-line bg-ink px-8 py-14 text-paper">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <Link
-            href="/"
-            className="font-mono text-[13px] uppercase tracking-[0.16em]"
-          >
-            DM<span className="text-accent">.</span>Workflows
+          <Link href="/" className="inline-block">
+            <img
+              src="/logo-light.svg"
+              alt="DM Workflows"
+              className="h-6 w-auto"
+            />
           </Link>
           <p className="mt-3 max-w-xs text-sm text-paper/45">
             Operational automation for growing businesses.
