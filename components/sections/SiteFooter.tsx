@@ -13,6 +13,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <Link href="/" className="inline-block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-light.svg"
               alt="DM Workflows"

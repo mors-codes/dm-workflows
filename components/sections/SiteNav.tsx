@@ -11,6 +11,7 @@ export function SiteNav() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-8 py-4">
         <Link href="/" className="shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo-dark.svg"
             alt="DM Workflows"
