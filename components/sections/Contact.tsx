@@ -55,8 +55,8 @@ export function Contact() {
           </p>
 
           <p className="mt-8 max-w-md border-l-2 border-accent pl-4 text-sm text-mute">
-            This form runs on one of our own automations — it scores what you
-            send, files it, and notifies us the moment it lands.
+            Goes straight to our inbox. No ticket queue, no autoresponder, no
+            chasing a reply.
           </p>
         </Reveal>
 
