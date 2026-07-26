@@ -13,10 +13,7 @@ export function Hero() {
             Operational automation
           </p>
 
-          <h1
-            className="dm-rise mt-8 text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl"
-            style={{ animationDelay: "0.12s" }}
-          >
+          <h1 className="mt-8 text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl">
             The manual work behind your business,
             <span className="text-accent"> handled.</span>
           </h1>
