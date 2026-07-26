@@ -86,3 +86,22 @@
     animation: none;
   }
 }
+
+@keyframes dm-rise-solid {
+  from {
+    transform: translateY(28px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.dm-rise-solid {
+  animation: dm-rise-solid 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-rise-solid {
+    animation: none;
+  }
+}
