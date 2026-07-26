@@ -30,14 +30,13 @@ export function WhyUs() {
 
           <div className="mt-6 max-w-lg space-y-4 text-mute">
             <p>
-              We run lean out of the Philippines. No office to fill, no bench to
-              keep busy, and no account management layer between you and the
-              people building your system.
+              Operating from the Philippines allows us to keep our overhead
+              lower than agencies in the US, UK, or Australia. Those savings are
+              reflected in our pricing, never in the quality of our work.
             </p>
             <p>
-              That structure is the whole difference. What an agency spends on
-              overhead, we spend on the build — and you deal directly with the
-              people doing it, for as long as the system runs.
+              We work across your business hours, communicate clearly, and
+              provide ongoing support long after your system goes live.
             </p>
           </div>
         </Reveal>
