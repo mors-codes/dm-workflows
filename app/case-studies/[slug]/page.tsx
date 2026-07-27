@@ -29,6 +29,9 @@ export async function generateMetadata({
   return {
     title: `${study.title} — DM Workflows`,
     description: study.premise,
+    alternates: {
+      canonical: `/case-studies/${study.slug}`,
+    },
   };
 }
 

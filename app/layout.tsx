@@ -7,9 +7,13 @@ import { SiteFooter } from "@/components/sections/SiteFooter";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dmworkflows.com"),
   title: "DM Workflows — Operational Automation for Growing Businesses",
   description:
     "We build backend automation systems for growing businesses: lead follow-up, CRM syncing, document processing, and the operational work eating your team's week.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
