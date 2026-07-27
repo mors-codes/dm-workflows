@@ -80,7 +80,7 @@ async function sendNotificationEmail(lead: Record<string, string>) {
   const resend = new Resend(apiKey);
 
   const { error } = await resend.emails.send({
-    from: "DM Workflows <onboarding@resend.dev>",
+    from: "DM Workflows <leads@dmworkflows.com>",
     to,
     replyTo: lead.email,
     subject: `New enquiry — ${lead.name}`,
