@@ -77,11 +77,16 @@ async function sendNotificationEmail(lead: Record<string, string>) {
 
   if (!apiKey || !to) throw new Error("No email fallback configured");
 
+  const recipients = to
+    .split(",")
+    .map((address) => address.trim())
+    .filter(Boolean);
+
   const resend = new Resend(apiKey);
 
   const { error } = await resend.emails.send({
     from: "DM Workflows <leads@dmworkflows.com>",
-    to,
+    to: recipients,
     replyTo: lead.email,
     subject: `New enquiry — ${lead.name}`,
     text: [
